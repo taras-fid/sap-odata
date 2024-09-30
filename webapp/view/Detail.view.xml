@@ -1,0 +1,43 @@
+<mvc:View
+    controllerName="ns.devsapodata.controller.Detail"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    displayBlock="true">
+    
+    <Page
+        id="page"
+        title="Detail"
+        showNavButton="true"
+        navButtonPress="oNavButton_press">
+        
+        <headerContent>
+            <HBox id="objectHBox">
+                <ObjectAttribute
+                    title="product Name"
+                    text="{ProductName}" />
+            </HBox>
+        </headerContent>
+
+        <content>
+            <VBox id="contentBox">
+                <Text
+                    id="productNameText"
+                    text="{ProductName}" 
+                    class="productName" />
+                <Text
+                    id="UnitsInStock"
+                    text="{UnitsInStock}" 
+                    class="UnitsInStock" />
+                <ObjectNumber
+                    id="UnitPrice"
+                    number="{UnitPrice}" 
+                    class="UnitPrice"
+                    unit="EUR" />
+                <Text
+                    id="objectText"
+                    text="{ProductDescription}" />
+            </VBox>
+        </content>
+        
+    </Page>
+</mvc:View>

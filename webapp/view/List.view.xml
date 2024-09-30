@@ -1,0 +1,48 @@
+<mvc:View
+    controllerName="ns.devsapodata.controller.List"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    displayBlock="true">
+    
+    <Page id="page" title="List">
+        <content>
+            <VBox>
+                <SearchField
+                    id="searchField"
+                    placeholder="Search Products..."
+                    liveChange=".onSearch" />
+            </VBox>
+            <Table
+                id="productTable"
+                items="{
+                    path: '/Products',
+                    parameters: { expand: 'Category' },
+                    sorter: {
+                        path: 'ProductName',
+                        descending: false
+                    }
+                }">
+                <columns>
+                    <Column id="nameColumn1">
+                        <Text text="{i18n>tableNameColumnTitle}" id="nameColumnTitle1" />
+                    </Column>
+                    <Column id="nameColumn2">
+                        <Text text="{i18n>tableCategoryColumnTitle}" id="nameColumnTitle2" />
+                    </Column>
+                    <Column id="nameColumn3">
+                        <Text text="{i18n>tablePriceColumnTitle}" id="nameColumnTitle3" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem id="CLItem1" type="Navigation" press=".onPress">
+                        <cells>
+                            <ObjectIdentifier id="ObjId1" title="{ProductName}" />
+                            <ObjectIdentifier id="ObjId2" title="{Category/CategoryName}" />
+                            <ObjectNumber id="ObjId3" number="{UnitPrice}" unit="EUR" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+    </Page>
+</mvc:View>
